@@ -66,7 +66,7 @@ By inspecting the world names there is a pattern:
 * The root  always changes by -7 with exceptions
 * The suffix always changes by +14 with exceptions
 
-Code: [see gen_pop_names.c]
+Code: see [gen_pop_names.c](gen_pop_names.c)
 
 # World Names
 
