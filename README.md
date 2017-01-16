@@ -79,7 +79,7 @@ NOTE: There are 3 typos in popular lists on the internet ...
 Here is the FULL 1,000 world names:
 
 ```
-001 GENESIS
+000 GENESIS
 001 HURTOUTORD
 002 JOSAMAR
 003 TIMUSLUG
@@ -1097,4 +1097,11 @@ Not sure why this [site](http://www.1up-games.com/sms/populous/passwords.html) l
 > Another detail: after the world 32768, the game returns to the very first; This apparently has been tested. And one thing that it is good to know: the environment changes every 5 levels. As a reminder, there are 6 environments: grassy plains, desert, snow and ice, rock and lava, futuristic and bitmap . As for the image on the back of the box, it is clearly derived from a prototype of the game (the icons are not arranged the same).
 >
 > After playing with all these passwords, we still think that Populous would have deserved a kind of end, even just intermediate to the way of Tetris and company.
+
+--
+
+Michael "Code Poet" Pohoreski
+aka Michaelangel007
+aka MysticReddit
+Monday, Januray 16, 2007
 
