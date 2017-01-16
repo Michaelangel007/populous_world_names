@@ -10,7 +10,10 @@ NOTE: There are 3 typos in popular lists on the internet ...
     266 MORIKEEP  should be MORIKEED
     769 HURTOXING should be HURTOXLUG
 
-Also is missing World 1000 = EOADIEPERT
+Also is missing:
+
+      0 SHISODING
+   1000 EOADIEPERT
 
 */
 
