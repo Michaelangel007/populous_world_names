@@ -43,12 +43,18 @@ int main( const int nArg, const char *aArg[] )
     int prefix = 31; // 4
     int root   =  6; // 0
     int suffix = 23; //23
+    int adjust =  0;
 
     int last = 1001;
     if( nArg > 1 )
         last = atoi( aArg[1] );
+
+    if( last < 0 )
+        last = 0;
     if( last > 1001 )
         last = 1001; // World 1000 = EOADIEPERT
+//  if( last > 32768 ) // Still buggy...
+//      last = 32768;
 
     // World 0 is hard-coded to GENESIS
     // prefix = x +  5 - 32 = 4  , x = 31, SHI
@@ -58,13 +64,12 @@ int main( const int nArg, const char *aArg[] )
 
     for( ; world < last; world++ )
     {
-        if( world )
-            printf( "%03d %s%s%s\n"
-                , world
-                , names[ prefix + 0  ]
-                , names[ root   + 64 ]
-                , names[ suffix + 32 ]
-            );
+        printf( "%03d %s%s%s\n"
+            , world
+            , names[ prefix + 0  ]
+            , names[ root   + 64 ]
+            , names[ suffix + 32 ]
+        );
 
         prefix += 5;
         prefix %= 32;
@@ -77,18 +82,21 @@ int main( const int nArg, const char *aArg[] )
         if ((world % 32 ) == 25) root++;
         root %= 32;
 
-        // 
+        // "Mostly" +14
         static int offset[] =
         {//+14 +13 +14 +14 +14 +13 +14
             23,  4, 18,  0, 14, 27, 9,
             23,  5, 19,  0, 14, 28, 9
         };
 
-        if( world == 173 ) // World 174
-            offset[5]++;
+        if ((world == 173) // World 174
+        || ((world >= 332) && (world % 173 == 159))) // (world - 160) % 173 == 0; // 333, 506, 679, 851, 1024, 1198
+        {
+            adjust += 5;
+            adjust %= 14;
 
-        if( world == 332 ) // World 333
-            offset[10]++;
+            offset[ adjust ]++;
+        }
 
         suffix = offset[ world % 14 ] + ((world+1) / 14);
         suffix %= 32;
