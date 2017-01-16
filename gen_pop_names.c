@@ -2,7 +2,7 @@
 Populous World Name Generator
 
 Michael "Code Poet" Pohoreski, aka Michaelangel007
-https://github.com/Michaelangel007/populous_names
+https://github.com/Michaelangel007/populous_world_names
 
 NOTE: There are 3 typos in popular lists on the internet ...
 
@@ -54,7 +54,7 @@ int main( const int nArg, const char *aArg[] )
     // prefix = x +  5 - 32 = 4  , x = 31, SHI
     // root   = y + 25 - 32 = 0-1, y =# 6, SOD
     // suffix =                    z =$23, ORD
-    printf( "001 GENESIS\n" );
+    printf( "000 GENESIS\n" );
 
     for( ; world < last; world++ )
     {

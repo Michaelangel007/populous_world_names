@@ -1081,3 +1081,20 @@ Here is the FULL 1,000 world names:
 999 KILLUSPAL
 1000 EOADIEPERT
 ```
+
+# 32,768 worlds?
+
+The PC game won't let you enter in worlds > 1000 but supposedly you can get there.
+
+Not sure why this [site](http://www.1up-games.com/sms/populous/passwords.html) lists all 32,768 !?
+
+> "Make the conquest of 5000 hostile worlds," proclaims the back of the jacket. For once it is not bluff, it might even be modesty since there are actually many more. But of course, there is a catch: the parameters and the geography vary, but most of these worlds are not so different from each other.
+>
+> After finishing a world, one is often, not sent to the next, but shipped, two, three levels farther, even much more. But five thousand remains a high figure. And since there is no end, we always do the same thing and we realize it pretty quickly. However, here is the complete list of 32769 worlds, whose names also serve as passwords up to 5119th.
+>
+> Beyond that, the game continues as if nothing had happened, but it is no longer possible to enter these passwords. That is, if you type any from the 5120th, the computer will say that it does not exist, even if you can go there if you play continuously. So DOUASICK, in 5119th place, could well be the last world. It is in any case quite close to the number announced by the jacket.
+>
+> Another detail: after the world 32768, the game returns to the very first; This apparently has been tested. And one thing that it is good to know: the environment changes every 5 levels. As a reminder, there are 6 environments: grassy plains, desert, snow and ice, rock and lava, futuristic and bitmap . As for the image on the back of the box, it is clearly derived from a prototype of the game (the icons are not arranged the same).
+>
+> After playing with all these passwords, we still think that Populous would have deserved a kind of end, even just intermediate to the way of Tetris and company.
+
