@@ -1,6 +1,5 @@
-const char *VERIFY[] =
-{
-     "GENESIS"
+const char *VERIFY[] = { // Names from http://www.1up-games.com/sms/populous/passwords.html
+     "GENESIS" // 0
     ,"HURTOUTORD"
     ,"JOSAMAR"
     ,"TIMUSLUG"
@@ -8193,7 +8192,7 @@ const char *VERIFY[] =
     ,"SUZCEPAL"
     ,"DOUASPERT"
     ,"SHISODOUT"
-    ,"8193 HURTOUTT"
+    ,"HURTOUTT" // 8193
     ,"JOSAPIL"
     ,"TIMUSJOB"
     ,"CALDIELIN"
@@ -16385,7 +16384,7 @@ const char *VERIFY[] =
     ,"SUZCEME"
     ,"DOUASOLD"
     ,"SHISODBOY"
-    ,"16385 HURTOUTDOR"
+    ,"HURTOUTDOR" // 16385
     ,"JOSAICK"
     ,"TIMUSHOLE"
     ,"CALDIELAS"
@@ -24577,7 +24576,7 @@ const char *VERIFY[] =
     ,"SUZCECON"
     ,"DOUASILL"
     ,"SHISODTORY"
-    ,"24577 HURTOUTEND"
+    ,"HURTOUTEND" // 24577
     ,"JOSAED"
     ,"TIMUSHAM"
     ,"CALDIEOND"
@@ -32768,5 +32767,5 @@ const char *VERIFY[] =
     ,"FUTIT"
     ,"SUZCEBAR"
     ,"DOUASER"
-    ,"SHISODING"
+//  ,"SHISODING" // alias for GENESIS
 };
