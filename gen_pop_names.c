@@ -17,36 +17,22 @@ Also is missing:
 
 */
 
-#include <stdio.h>  // printf()
-#include <stdlib.h> // atoi()
+// Inclues
+    #include <stdio.h>  // printf()
+    #include <stdlib.h> // atoi()
 
-    const char *WORDS[ 32*3 ] =
-    {
-    // Prefix
-        "RING","VERY","KILL","SHAD","HURT","WEAV","MIN" ,"EOA" , //  0 ..  7
-        "COR" ,"JOS" ,"ALP" ,"HAM" ,"BUR" ,"BIN" ,"TIM" ,"BAD" , //  8 .. 15
-        "FUT" ,"MOR" ,"SAD" ,"CAL" ,"IMM" ,"SUZ" ,"NIM" ,"LOW" , // 16 .. 23
-        "SCO" ,"HOB" ,"DOU" ,"BIL" ,"QAZ" ,"SWA" ,"BUG" ,"SHI" , // 24 .. 31
-    // Suffix
-        "HILL","TORY","HOLE","PERT","MAR" ,"CON" ,"LOW" ,"DOR" , // 32 .. 39  [# 0 .. # 7]
-        "LIN" ,"ING" ,"HAM" ,"OLD" ,"PIL" ,"BAR" ,"MET" ,"END" , // 40 .. 47  [# 8 .. #15]
-        "LAS" ,"OUT" ,"LUG" ,"ILL" ,"ICK" ,"PAL" ,"DON" ,"ORD" , // 48 .. 55  [#16 .. #23]
-        "OND" ,"BOY" ,"JOB" ,"ER"  ,"ED"  ,"ME"  ,"AL"  ,"T"   , // 56 .. 63  [#24 .. #31]
-    // Root
-        "OUT" ,"QAZ" ,"ING" ,"OGO" ,"QUE" ,"LOP" ,"SOD" ,"HIP" , // 64 .. 71  [$ 0 .. $ 7]
-        "KOP" ,"WIL" ,"IKE" ,"DIE" ,"IN"  ,"AS"  ,"MP"  ,"DI"  , // 72 .. 79  [$ 8 .. $15]
-        "OZ"  ,"EA"  ,"US"  ,"GB"  ,"CE"  ,"ME"  ,"DE"  ,"PE"  , // 80 .. 87  [$16 .. $23]
-        "OX"  ,"A"   ,"E"   ,"I"   ,"O"   ,"U"   ,"T"   ,"Y"     // 88 .. 95  [$24 .. $31]
-    };
+    #include "names.h"
 
-    int giSuffix; // See World 174
 
-    // "Mostly" +14
-    static int gaSuffixDif[ 14 ] =
-    {//+14 +13 +14 +14 +14 +13 +14
-        23,  4, 18,  0, 14, 27, 9,
-        23,  5, 19,  0, 14, 28, 9
-    };
+// ========================================================================
+void PrintWorldName( int prefix, int root, int suffix )
+{
+    printf( "%s%s%s\n"
+        ,PREFIX[ prefix ]
+        ,ROOT  [ root   ]
+        ,SUFFIX[ suffix ]
+    );
+}
 
 // ========================================================================
 int main( const int nArg, const char *aArg[] )
@@ -56,31 +42,27 @@ int main( const int nArg, const char *aArg[] )
     int root   =  6; // World 0:  6; World 1:  0 = OUT
     int suffix =  9; // World 0:  9; World 1: 23 = ORD
 
-    giSuffix = 0;
+    int mod14; // world % 14
 
-    int last = 1001;
+    int specialIndex = 0;
+    int specialWorld = 174; // First special world
+
+    int last = 1000;
     if( nArg > 1 )
         last = atoi( aArg[1] );
 
     if( last < 0 )
         last = 0;
-    if( last > 1000 )
-        last = 1000; // World 1000 = EOADIEPERT
-//  if( last > 32768 ) // Still buggy...
-//      last = 32768;
+    if( last > 32767 )
+        last = 32767;
 
     // World 0 is hard-coded to accept GENESIS as an alias
     // World 32,768 = World 0
-    printf( "0 GENESIS or %s%s%s\n"
-        , WORDS[ prefix + 0  ]
-        , WORDS[ root   + 64 ]
-        , WORDS[ suffix + 32 ]
-    );
+    printf( "0 GENESIS or " );
+    PrintWorldName( prefix, root, suffix );
 
-    while( world < last )
+    while( world++ < last )
     {
-        world++;
-
         prefix += 5;
         prefix %= 32;
 
@@ -92,24 +74,20 @@ int main( const int nArg, const char *aArg[] )
         if ((world % 32 ) == 26) root++;
         root %= 32;
 
-        if ((world == 174) // World 174 WEAVOUTLIN
-        || ((world >= 333) && ((world - 160) % 173 == 0))) // 333, 506, 679, 851, 1024, 1198
+        mod14 = world % 14;
+        suffix = ++gaSuffixLast[ mod14 ];
+
+        if (world == specialWorld)
         {
-            giSuffix += 5;
-            giSuffix %= 14;
+            suffix = ++gaSuffixLast[ mod14 ];
 
-            gaSuffixDif[ giSuffix ]++;
+            specialWorld += gaSpecialDelta[ specialIndex ];
+            ++specialIndex %= 6;
         }
-
-        suffix = gaSuffixDif[ (world+13) % 14 ] + (world / 14);
         suffix %= 32;
 
-        printf( "%d %s%s%s\n"
-            , world
-            , WORDS[ prefix + 0  ]
-            , WORDS[ root   + 64 ]
-            , WORDS[ suffix + 32 ]
-        );
+        printf( "%d ", world );
+        PrintWorldName( prefix, root, suffix );
     }
 
     return 0;
