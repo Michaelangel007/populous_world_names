@@ -1102,7 +1102,7 @@ Not sure why this [site](http://www.1up-games.com/sms/populous/passwords.html) l
 --
 
 Michael "Code Poet" Pohoreski
-aka Michaelangel007
-aka MysticReddit
-Monday, Januray 16, 2007
+* aka Michaelangel007
+* aka MysticReddit
 
+Monday, January 16, 2007
